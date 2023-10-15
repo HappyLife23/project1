@@ -1,0 +1,127 @@
+:root {
+  --bg-header: #f9b9b7;
+  --bg-nav: #e0a0bb;
+  --bg-main: #b68fc1;
+  --bg-sidebar: #7784c0;
+  --bg-ads: #007aae;
+  --bg-footer: #006d89;
+
+  --ff: Roboto, Sans Serif;
+
+  --lh: 1.5rem;
+
+  --br: 20px;
+
+  --padding: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.container {
+  background: #f7ff00; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #db36a4,
+    #f7ff00
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #db36a4,
+    #f7ff00
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  display: grid;
+  border: 1px solid;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: 0.5rem;
+  height: 100vh;
+  width: 100%;
+  grid-template-rows: 100px 100px 400px 100px;
+  grid-template-columns: 150px 300px 300px 100px;
+  grid-template-areas:
+    "header header header header"
+    "navigation navigation navigation navigation"
+    "sidebar main main main "
+    "ads footer footer footer";
+}
+
+.header {
+  background-color: var(--bg-header);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: header;
+}
+.navigation {
+  background-color: var(--bg-nav);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: navigation;
+}
+.main {
+  background-color: var(--bg-main);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: main;
+}
+.sidebar {
+  background-color: var(--bg-sidebar);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: sidebar;
+}
+.ads {
+  background-color: var(--bg-ads);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: ads;
+}
+.footer {
+  background-color: var(--bg-footer);
+  padding: 1rem;
+  border-radius: 10px;
+  grid-area: footer;
+}
+
+@media (max-width: 450px) {
+  .container {
+    grid-template-areas:
+      "header header header"
+      "navigation navigation navigation"
+      "main main main"
+      "sidebar sidebar sidebar"
+      "ads ads ads"
+      "footer footer footer";
+  }
+}
+@media (min-width: 1000px) {
+  .container {
+    grid-template-areas:
+      "header header header header"
+      "sidebar navigation navigation ads"
+      "sidebar main main ads"
+      "footer footer footer footer";
+  }
+  .header {
+    grid-area: header;
+  }
+  .navigation {
+    grid-area: navigation;
+  }
+  .main {
+    grid-area: main;
+  }
+  .sidebar {
+    grid-area: sidebar;
+  }
+  .ads {
+    grid-area: ads;
+  }
+  .footer {
+    grid-area: footer;
+  }
+}
